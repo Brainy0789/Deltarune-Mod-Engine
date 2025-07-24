@@ -13,6 +13,10 @@
 	<!--Minimum without FLX_NO_GAMEPAD: 11.8, without FLX_NO_NATIVE_CURSOR: 11.2-->
 	<set name="SWF_VERSION" value="11.8" />
 
+	<!--____________________DELTARUNE MOD ENGINE CUSTOMIZATION____________________-->
+
+	<define name="HSCRIPT_ENABLED" if="sys"/>
+
 	<!-- ____________________________ Window Settings ___________________________ -->
 
 	<!--These window settings apply to all targets-->
@@ -32,6 +36,7 @@
 	<set name="BUILD_DIR" value="export" />
 	<source path="source" />
 	<assets path="assets" />
+	<assets path="mods" rename="mods" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -46,12 +51,12 @@
 	<!--In case you want to use nape with flixel-->
 	<!--<haxelib name="nape-haxe4" />-->
 
-	<haxelib name="hscript-iris" />
+	<section if="HSCRIPT_ENABLED">
+		<haxelib name="hscript-iris"/>
+		<haxedef name="hscriptPos" />
+	</section>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
-
-	<!--Remove the legacy health system-->
-	<haxedef name="FLX_NO_HEALTH" />
 	
 	<!--Enable the Flixel core recording system-->
 	<!--<haxedef name="FLX_RECORD" />-->
@@ -90,4 +95,7 @@
 	<!-- _________________________________ Custom _______________________________ -->
 
 	<!--Place custom nodes like icons here-->
+	<icon path="art/icons/icon256.png" size='256'/>
+	<icon path="art/icons/icon512.png" size='512'/>
+	<icon path="art/icons/icon1024.png" size='1024'/>
 </project>
