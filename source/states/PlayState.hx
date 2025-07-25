@@ -3,6 +3,7 @@ package states;
 import flixel.FlxState;
 import objects.Player;
 import flixel.FlxG;
+import backend.ClientPrefs;
 class PlayState extends FlxState
 {
 	var player:Player;
@@ -16,5 +17,8 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		if (cast(ClientPrefs.controls.LEFT.justPressed))
+			trace("LEFT PRESS REAL");
 	}
 }

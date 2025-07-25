@@ -1,8 +1,5 @@
 package backend;
-
-#if sys
 import sys.FileSystem;
-#end
 
 class Mods
 {
@@ -16,17 +13,19 @@ class Mods
     }
 
     public function getModFolders(modsPath:String) {
+        this.modFolders = new Array<String>();
         var mods:Array<String> = new Array<String>();
         if (FileSystem.exists(modsPath) && FileSystem.isDirectory(modsPath)) {
             var entries = FileSystem.readDirectory(modsPath);
             for (entry in entries) {
                 var fullPath = modsPath + "/" + entry;
                 if (FileSystem.isDirectory(fullPath)) {
-                    modFolders.push(entry);
+                    mods.push(entry);
                 }
             }
         }
 
         this.modFolders = mods;
+    
     }
 }

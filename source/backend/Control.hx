@@ -71,7 +71,7 @@ class Control
         this.control = cont;
     }
 
-    function justPressed():Bool
+    public function justPressed():Bool
     {
         switch (control) {
             case "UP":
@@ -88,8 +88,7 @@ class Control
                 return FlxG.keys.justPressed.X;
             case "C":
                 return FlxG.keys.justPressed.C;
-            default:
-                return false;
         }
+        return false;
     }
 }

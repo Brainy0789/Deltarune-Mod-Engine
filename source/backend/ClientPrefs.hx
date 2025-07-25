@@ -15,7 +15,10 @@ typedef Controls = {
 
 
 class ClientPrefs {
-    function defaultControls():Controls
+
+    public static var controls:Controls = defaultControls();
+
+    static function defaultControls():Controls
         return {
             UP: new Control("UP"),
             DOWN: new Control("DOWN"),
